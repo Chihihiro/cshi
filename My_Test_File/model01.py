@@ -21,7 +21,7 @@ class my_test(My_Tests):
             self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
             self.find_text_touch(text='我的会员', right=70, find="迪士尼及景区")
             self.wait_xpath('//android.widget.TextView[@text="迪士尼及景区"]').click()
-            self.wait_xpath('//android.widget.TextView[@text="迪士尼门票"]').click()
+            self.wait_xpath('//android.widget.TextView[@text="全部"]').click()
             self.wait_xpath('//android.widget.TextView[@text="迪士尼乐园一日成人票"]').click()
             self.wait_xpath('//*[@content-desc="特惠购买"]').click()
             time.sleep(5)#需要多等待一会可能请求太快而失败
