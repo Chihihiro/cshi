@@ -31,9 +31,13 @@ class my_test(My_Tests):
 
 
 
-if __name__ == "__main__":
+def run():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
     a.login()
     a.main()
     a.tearDown()
+
+
+if __name__ == "__main__":
+    run()
