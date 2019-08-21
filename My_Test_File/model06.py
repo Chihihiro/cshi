@@ -24,7 +24,7 @@ class my_test(My_Tests):
             time.sleep(3)
             self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.widget.Button[1]').click()
             time.sleep(3)
-            print('订单下单成功')
+            print('会员解锁订单下单成功')
         except BaseException as e:
             print(e)
 

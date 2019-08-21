@@ -41,7 +41,7 @@ class my_test(My_Tests):
             self.my_send(field)#模拟键盘输入
             self.wait_xpath('//*[@content-desc="立即支付"]').click()
             time.sleep(2)
-            print('订单下单成功')
+            print('迪士尼门票订单下单成功')
         except BaseException as e:
             print(e)
 

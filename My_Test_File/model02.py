@@ -25,7 +25,7 @@ class my_test(My_Tests):
             self.wait_xpath('//*[@content-desc="特惠购买"]').click()
             time.sleep(5)#需要多等待一会可能请求太快而失败
             # 查找今天的位置的下一位就是买明天的票
-            print('订单下单成功')
+            print('星巴克订单下单成功')
         except BaseException as e:
             print(e)
 
