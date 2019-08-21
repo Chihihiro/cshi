@@ -33,6 +33,7 @@ def job():
 
 
 if __name__ == '__main__':
+    job()
     schedule.every(10).minutes.do(job)
 
     while True:
