@@ -219,7 +219,7 @@ class My_Tests(Base_Driver):
 
     def random_name(self):
         txt = "abcdefghijklmnopqrstuvwxyz"
-        a = random.randint()
+        a = random.randint(4, 10)
         b = [txt[random.randint(0, 25)] for i in range(a)]
         name = "".join(b)
         return name
