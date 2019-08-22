@@ -23,7 +23,7 @@ class my_test(My_Tests):
             self.wait_xpath('//android.widget.TextView[@text="酒店特权"]').click()
             # self.wait_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_findHotel"]').click()
             self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.widget.ImageView[1]').click()
-            num = random.randint(400, 800)
+            num = random.randint(300, 500)
             print('随机下滑', num)
             time.sleep(10)
             self.my_touch(xpath='//*[@content-desc="全部"]', down=-num)
@@ -31,7 +31,7 @@ class my_test(My_Tests):
             #               down=-random.randint(300, 2000))
             # self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]', down=-random.randint(300, 1000))
             # self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]').click()
-            nn = random.randint(1,5)
+            nn = random.randint(2,3)
             print(nn)
             # self.driver.find_element_by_xpath(
             #     f'//android.support.v7.widget.RecyclerView[1]/android.widget.LinearLayout[{nn}]/android.widget.LinearLayout[1]/android.widget.TextView[1]').click()
