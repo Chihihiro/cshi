@@ -45,7 +45,7 @@ class Base_Driver(object):
     def setup(self):
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self.desired_caps)  # 连接Appium
         self.driver.implicitly_wait(8)  # 设置延迟等待
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 15)
         self.id_card = id_card()
 
     def my_send(self, strs):
@@ -200,3 +200,26 @@ class My_Tests(Base_Driver):
         except BaseException:
             pass
 
+
+    def kill_advert(self):
+        """杀掉弹窗广告"""
+        try:
+            # 查看登入是否存在
+            kill = self.driver.find_element_by_xpath('//*[@content-desc="悦会YHOUSE"]')
+        except BaseException:
+            kill = None
+        print(kill)
+
+        if kill:
+            try:
+                kill.click()
+                self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/web_back_btn"]').click()
+            except BaseException as e:
+                print(e)
+
+    def random_name(self):
+        txt = "abcdefghijklmnopqrstuvwxyz"
+        a = random.randint()
+        b = [txt[random.randint(0, 25)] for i in range(a)]
+        name = "".join(b)
+        return name

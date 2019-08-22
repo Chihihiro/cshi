@@ -17,6 +17,7 @@ class my_test(My_Tests):
         self.password = password
 
     def main(self):
+        # self.kill_advert()
         try:
             self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
             self.wait_xpath('//android.widget.TextView[@text="酒店特权"]').click()
