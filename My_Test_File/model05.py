@@ -41,7 +41,8 @@ class my_test(My_Tests):
             name = self.wait_xpath('//android.widget.EditText[@text="请输入姓名"]')
             name.click()
             time.sleep(3)
-            field = f'test~13524422749'
+            txt = self.random_name()
+            field = f'{txt}~13524422749'
             self.my_send(field)#模拟键盘输入
             self.wait_xpath('//android.widget.Button[@text="立即预约"]').click()
             time.sleep(3)
