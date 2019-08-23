@@ -17,17 +17,17 @@ class my_test(My_Tests):
         self.password = password
 
     def main(self):
-        try:
-            self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
-            self.shanghai_city()
-            self.wait_xpath('//android.widget.TextView[@text="解锁/激活更多权益"]').click()
-            self.wait_xpath('//*[@content-desc="b_btn"]').click()
-            time.sleep(3)
-            self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.widget.Button[1]').click()
-            time.sleep(3)
-            print('会员解锁订单下单成功')
-        except BaseException as e:
-            print(e)
+        # try:
+        self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
+        self.shanghai_city()
+        self.wait_xpath('//android.widget.TextView[@text="解锁/激活更多权益"]').click()
+        self.wait_xpath('//*[@content-desc="b_btn"]').click()
+        time.sleep(3)
+        self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.widget.Button[1]').click()
+        time.sleep(3)
+        print('会员解锁订单下单成功')
+        # except BaseException as e:
+        #     print(e)
 
 
 

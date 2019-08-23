@@ -17,17 +17,17 @@ class my_test(My_Tests):
         self.password = password
 
     def main(self):
-        try:
-            self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
-            self.shanghai_city()
-            self.wait_xpath('//android.widget.TextView[@text="娱乐追剧特权"]').click()
-            self.wait_xpath('//android.widget.TextView[@text="爱奇艺VIP会员年卡"]').click()
-            self.wait_xpath('//*[@content-desc="特惠购买"]').click()
-            time.sleep(5)#需要多等待一会可能请求太快而失败
+        # try:
+        self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
+        self.shanghai_city()
+        self.wait_xpath('//android.widget.TextView[@text="娱乐追剧特权"]').click()
+        self.wait_xpath('//android.widget.TextView[@text="爱奇艺VIP会员年卡"]').click()
+        self.wait_xpath('//*[@content-desc="特惠购买"]').click()
+        time.sleep(5)#需要多等待一会可能请求太快而失败
             # 查找今天的位置的下一位就是买明天的票
-            print('爱奇艺VIP会员年卡订单下单成功')
-        except BaseException as e:
-            print(e)
+        print('爱奇艺VIP会员年卡订单下单成功')
+        # except BaseException as e:
+        #     print(e)
 
 
 
