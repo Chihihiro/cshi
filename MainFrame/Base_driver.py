@@ -223,3 +223,17 @@ class My_Tests(Base_Driver):
         b = [txt[random.randint(0, 25)] for i in range(a)]
         name = "".join(b)
         return name
+
+    def shanghai_city(self):
+            try:
+                choise_city = self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_selectCity"]').text
+            except BaseException as e:
+                choise_city = None
+
+            if choise_city == '上海':
+                pass
+            else:
+                self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_selectCity"]').click()
+                self.driver.find_element_by_xpath('//android.widget.TextView[@text="上海"]').click()
+
+            print('城市上海')

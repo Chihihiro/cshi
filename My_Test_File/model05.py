@@ -20,6 +20,7 @@ class my_test(My_Tests):
         # self.kill_advert()
         try:
             self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
+            self.shanghai_city()
             self.wait_xpath('//android.widget.TextView[@text="酒店特权"]').click()
             # self.wait_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_findHotel"]').click()
             self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.widget.ImageView[1]').click()

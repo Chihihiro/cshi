@@ -19,6 +19,7 @@ class my_test(My_Tests):
     def main(self):
         try:
             self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
+            self.shanghai_city()
             self.find_text_touch(text='我的会员', right=70, find="迪士尼及景区")
             self.wait_xpath('//android.widget.TextView[@text="迪士尼及景区"]').click()
             # self.wait_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/v_fake"]').click()

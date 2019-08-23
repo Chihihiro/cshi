@@ -19,6 +19,7 @@ class my_test(My_Tests):
     def main(self):
         try:
             self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
+            self.shanghai_city()
             self.wait_xpath('//android.widget.TextView[@text="解锁/激活更多权益"]').click()
             self.wait_xpath('//*[@content-desc="b_btn"]').click()
             time.sleep(3)
