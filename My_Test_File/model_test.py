@@ -61,3 +61,6 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+
+# preceding-sibling:: 可以找到节点前面也就是哥哥节点，following-sibling::可以找到节点后面也就是弟弟节点

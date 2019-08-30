@@ -40,5 +40,5 @@ def run4():
 
 
 if __name__ == "__main__":
-    run()
+    run4()
 
