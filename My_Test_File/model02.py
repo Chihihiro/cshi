@@ -32,7 +32,7 @@ class my_test(My_Tests):
 
 
 
-def run():
+def run2():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
     a.login()

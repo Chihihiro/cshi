@@ -8,12 +8,12 @@ import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime
 import schedule
-from My_Test_File.model01 import run as run1
-from My_Test_File.model02 import run as run2
-from My_Test_File.model03 import run as run3
-from My_Test_File.model04 import run as run4
-from My_Test_File.model05 import run as run5
-from My_Test_File.model06 import run as run6
+from My_Test_File.model01 import run1 as run1
+from My_Test_File.model02 import run2 as run2
+from My_Test_File.model03 import run3 as run3
+from My_Test_File.model04 import run4 as run4
+from My_Test_File.model05 import run5 as run5
+from My_Test_File.model06 import run6 as run6
 
 
 # path = os.getcwd() + '\My_Test_File'

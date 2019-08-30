@@ -52,7 +52,7 @@ class my_test(My_Tests):
         # except BaseException as e:
         #     print(e)
 
-def run():
+def run1():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
     a.login()
