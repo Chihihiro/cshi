@@ -4,6 +4,7 @@
 
 import random
 from MainFrame.Base_driver import *
+import random
 
 """
 酒店
@@ -59,8 +60,16 @@ class my_test(My_Tests):
         # screen_height
         # Out[11]: 1440
         time.sleep(3)
-        self.touch_tap(700, 1000)
-        self.touch_tap(700, 1100)
+        x = [i for i in range(100,601,100)]
+        x1 = random.choice(x)
+        x2 = x1 + 100
+
+        y = [i for i in range(900,1101,100)]
+        y1 = random.choice(y)
+
+
+        self.touch_tap(x1, y1)
+        self.touch_tap(x2, y1)
         # self.driver.execute_script("alert('hello,selenium');")
         self.wait_xpath('//android.widget.Button[@text="确认"]').click()
         self.wait_xpath('//android.widget.TextView[@text="立即预订"]').click()
