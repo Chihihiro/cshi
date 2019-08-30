@@ -37,8 +37,8 @@ class my_test(My_Tests):
         for i in text:
             if '¥' in i:
                 tt.append(i)
-        print(tt[3], '*'*30)
-        self.wait_xpath(f'//*[@content-desc="{tt[3]}"]').click()
+        print(tt[1], '*'*30)
+        self.wait_xpath(f'//*[@content-desc="{tt[1]}"]').click()
         time.sleep(5)
         #填写信息
         name = self.wait_xpath('//android.widget.EditText[@text="请输入姓名"]')
