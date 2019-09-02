@@ -59,19 +59,20 @@ class my_test(My_Tests):
         # screen_height = self.driver.get_window_size()['height']
         # screen_height
         # Out[11]: 1440
-        time.sleep(3)
-        x = [i for i in range(100,601,100)]
-        x1 = random.choice(x)
-        x2 = x1 + 100
-
-        y = [i for i in range(900,1101,100)]
-        y1 = random.choice(y)
-
-
-        self.touch_tap(x1, y1)
-        self.touch_tap(x2, y1)
+        # time.sleep(3)
+        # x = [i for i in range(100,601,100)]
+        # x1 = random.choice(x)
+        # x2 = x1 + 100
+        #
+        # y = [i for i in range(900,1101,100)]
+        # y1 = random.choice(y)
+        #
+        #
+        # self.touch_tap(x1, y1)
+        # self.touch_tap(x2, y1)
         # self.driver.execute_script("alert('hello,selenium');")
-        self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+        # self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+        self.random_click()
         self.wait_xpath('//android.widget.TextView[@text="立即预订"]').click()
         self.wait_xpath('//*[@content-desc="立即预订"]').click()
         name = self.wait_xpath('//android.widget.EditText[@text="请输入姓名"]')
@@ -85,6 +86,31 @@ class my_test(My_Tests):
         print('酒店订单下单成功')
         # except BaseException as e:
         #     print(e)
+
+    def random_click(self):
+        time.sleep(1)  # 设置延迟方便调试
+        # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+        try:
+            # 查看登入是否存在
+            cc = self.driver.find_element_by_xpath('//*[@content-desc="选择日期："]')
+        except BaseException:
+            cc = None
+
+        if cc:
+            print('点击到了通过')
+            pass
+        else:
+            time.sleep(1)
+            x = [i for i in range(100,601,100)]
+            x1 = random.choice(x)
+            x2 = x1 + 100
+            y = [i for i in range(300,1101,100)]
+            y1 = random.choice(y)
+            print('随机高度和左右', y1, x1, x2)
+            self.touch_tap(x1, y1)
+            self.touch_tap(x2, y1)
+            self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+            self.random_click()
 
 
 
