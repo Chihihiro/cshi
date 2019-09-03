@@ -73,29 +73,50 @@ class my_test(My_Tests):
         #     print(e)
 
     def random_click(self):
-        time.sleep(1)  # 设置延迟方便调试
+        time.sleep(3)  # 设置延迟方便调试
         # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
         now = re.sub('-', '.', str(datetime.now())[:10])
+        now2 = now[:5]+ str(int(now[6:7])) +'.'+ str(int(now[9:10]))
 
         try:
-            # 查看登入是否存在
+            self.driver.find_element_by_xpath('//*[@content-desc="选择日期："]')
+        except BaseException:
+            print('没有在正确页面点击返回')
+            self.wait_xpath('//android.widget.ImageView[@resource-id="com.yhouse.code:id/header_left_back"]').click()
+
+
+        try:
             cc = self.driver.find_element_by_xpath(f'//*[@content-desc="{now}"]')
             self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
-            # cc = self.driver.find_element_by_xpath('//*[@content-desc="选择日期："]')
-        except BaseException:
+            print(cc, '今天日期存在')
+        except BaseException as e:
+            print(e)
             cc = None
 
-        if cc:
-            time.sleep(1)
-            x = [i for i in range(100,601,100)]
-            x1 = random.choice(x)
-            x2 = x1 + 100
-            y = [i for i in range(300,1101,100)]
-            y1 = random.choice(y)
-            print('随机高度和左右', y1, x1, x2)
-            self.touch_tap(x1, y1)
-            self.touch_tap(x2, y1)
-            self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+        try:
+            zz = self.driver.find_element_by_xpath(f'//*[@content-desc="{now2}"]')
+            self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+            print(zz, '今天日期存在')
+        except BaseException as e:
+            print(e)
+            zz = None
+
+        if cc or zz:
+            try:
+                time.sleep(1)
+                x = [i for i in range(100,601,100)]
+                x1 = random.choice(x)
+                x2 = x1 + 100
+                y = [i for i in range(300,1101,100)]
+                y1 = random.choice(y)
+                print('随机高度和左右', y1, x1, x2)
+                self.touch_tap(x1, y1)
+                self.touch_tap(x2, y1)
+                print('随机点击点击完毕')
+                time.sleep(1)
+                self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+            except BaseException as e:
+                print(e)
             self.random_click()
         else:
             print('不是今天了通过')
@@ -105,7 +126,7 @@ class my_test(My_Tests):
 def run5():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
-    a.login()
+    # a.login()
     a.main()
     a.tearDown()
 
