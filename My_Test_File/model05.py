@@ -5,6 +5,8 @@
 import random
 from MainFrame.Base_driver import *
 import random
+from datetime import datetime
+import re
 
 """
 酒店
@@ -48,30 +50,13 @@ class my_test(My_Tests):
         #               down=-random.randint(300, 2000))
         # self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]', down=-random.randint(300, 1000))
         # self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]').click()
-        nn = random.randint(2,3)
+        nn = random.randint(1, 4)
         print(nn)
-        # self.driver.find_element_by_xpath(
-        #     f'//android.support.v7.widget.RecyclerView[1]/android.widget.LinearLayout[{nn}]/android.widget.LinearLayout[1]/android.widget.TextView[1]').click()
         self.driver.find_element_by_xpath(f'//android.widget.ListView/android.view.View[{nn}]/android.view.View[2]').click()
-        self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
-        # screen_width
-        # Out[9]: 810
-        # screen_height = self.driver.get_window_size()['height']
-        # screen_height
-        # Out[11]: 1440
-        # time.sleep(3)
-        # x = [i for i in range(100,601,100)]
-        # x1 = random.choice(x)
-        # x2 = x1 + 100
-        #
-        # y = [i for i in range(900,1101,100)]
-        # y1 = random.choice(y)
-        #
-        #
-        # self.touch_tap(x1, y1)
-        # self.touch_tap(x2, y1)
-        # self.driver.execute_script("alert('hello,selenium');")
-        # self.wait_xpath('//android.widget.Button[@text="确认"]').click()
+        # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+
+
+
         self.random_click()
         self.wait_xpath('//android.widget.TextView[@text="立即预订"]').click()
         self.wait_xpath('//*[@content-desc="立即预订"]').click()
@@ -90,16 +75,17 @@ class my_test(My_Tests):
     def random_click(self):
         time.sleep(1)  # 设置延迟方便调试
         # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+        now = re.sub('-', '.', str(datetime.now())[:10])
+
         try:
             # 查看登入是否存在
-            cc = self.driver.find_element_by_xpath('//*[@content-desc="选择日期："]')
+            cc = self.driver.find_element_by_xpath(f'//*[@content-desc="{now}"]')
+            self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+            # cc = self.driver.find_element_by_xpath('//*[@content-desc="选择日期："]')
         except BaseException:
             cc = None
 
         if cc:
-            print('点击到了通过')
-            pass
-        else:
             time.sleep(1)
             x = [i for i in range(100,601,100)]
             x1 = random.choice(x)
@@ -111,6 +97,8 @@ class my_test(My_Tests):
             self.touch_tap(x2, y1)
             self.wait_xpath('//android.widget.Button[@text="确认"]').click()
             self.random_click()
+        else:
+            print('不是今天了通过')
 
 
 
