@@ -40,8 +40,8 @@ class my_test(My_Tests):
         self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
         self.shanghai_city()
         self.wait_xpath('//android.widget.TextView[@text="酒店特权"]').click()
-        # self.wait_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_findHotel"]').click()
-        self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.widget.ImageView[1]').click()
+        # self.wait_xpath('//android.widget.ImageView[@resource-id="com.yhouse.code:id/ivHotel"]')[1].click()
+        self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.widget.ImageView[1]').click()
         num = random.randint(300, 500)
         print('随机下滑', num)
         time.sleep(10)
@@ -126,7 +126,7 @@ class my_test(My_Tests):
 def run5():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
-    # a.login()
+    a.login()
     a.main()
     a.tearDown()
 
