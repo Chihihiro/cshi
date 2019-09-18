@@ -34,6 +34,12 @@ class my_test(My_Tests):
         y1 = int(b)
         self.driver.tap([(x1, y1), (x1, y1)], duration)
 
+    def phoneNORandomGenerator(self):
+        prelist = ["130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "147", "150", "151", "152",
+                   "153",
+                   "155", "156", "157", "158", "159", "186", "187", "188"]
+        return random.choice(prelist) + "".join(random.choice("0123456789") for i in range(8))
+
     def main(self):
         # self.kill_advert()
         # try:
@@ -41,8 +47,20 @@ class my_test(My_Tests):
         # self.shanghai_city()
         self.wait_xpath('//android.widget.TextView[@text="酒店特权"]').click()
         # self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[5]').click()
+        time.sleep(3)
         self.wait_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/tv_findHotel"]').click()
-        self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]').click()
+
+
+        self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]',
+                      down=-random.randint(1000, 2000))
+        time.sleep(3)
+        self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]',
+                      down=-random.randint(1000, 2000))
+        time.sleep(3)
+        self.touch_tap(500, 600)
+        # x = [2, 3, 4, 5, 6]
+        # y = random.choice(x)
+        # self.wait_xpath(f'//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.LinearLayout[{y}]/android.widget.LinearLayout[1]').click()
         # self.wait_xpath('//android.widget.TextView[@text="立即预订"]')[1].click()
         # self.wait_xpath('//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.widget.ImageView[1]').click()
 
@@ -69,7 +87,8 @@ class my_test(My_Tests):
         name.click()
         time.sleep(3)
         txt = self.random_name()
-        field = f'{txt}~13524422749'
+        phone1 = self.phoneNORandomGenerator()
+        field = f'{txt}~{phone1}'
         self.my_send(field)#模拟键盘输入
         self.wait_xpath('//android.widget.Button[@text="立即预约"]').click()
         time.sleep(3)
