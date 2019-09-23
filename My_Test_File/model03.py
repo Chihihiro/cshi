@@ -21,21 +21,40 @@ class my_test(My_Tests):
         self.wait_xpath('//android.widget.TextView[@text="悦会会员"]').click()
         self.shanghai_city()
         self.wait_xpath('//android.widget.TextView[@text="娱乐追剧特权"]').click()
+        time.sleep(1)
         self.wait_xpath('//android.widget.TextView[@text="爱奇艺VIP会员年卡"]').click()
+        time.sleep(3)
         self.wait_xpath('//*[@content-desc="特惠购买"]').click()
-        time.sleep(5)#需要多等待一会可能请求太快而失败
-            # 查找今天的位置的下一位就是买明天的票
+        time.sleep(5)
         print('爱奇艺VIP会员年卡订单下单成功')
-        # except BaseException as e:
-        #     print(e)
+        try:
+            zf = self.driver.find_element_by_xpath(
+                '//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
+            # zf = self.driver.find_element_by_xpath('//android.widget.TextView[@text="爱奇艺VIP会员年卡"]')
+        except BaseException:
+            zf = None
+
+        if zf:
+            return 1
+        else:
+            return 0
+
+    def ref(self):
+        # 'com.yhouse.code:id/header_left_back'
+        fan = self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/header_left_back"]')
+        fan.click()
 
 
 
 def run3():
     a = my_test(phone='13524422749', password='123456')
-    a.setup()
-    a.login()
-    a.main()
+    # a.login()
+    count = 0
+    while count == 0:
+        a.setup()
+        zf = a.main()
+        print('zf返回为：', zf)
+        count = count + zf
     a.tearDown()
 
 

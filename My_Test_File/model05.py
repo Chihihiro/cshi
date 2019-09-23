@@ -163,10 +163,11 @@ class my_test(My_Tests):
 
 def run5():
     a = my_test(phone='13524422749', password='123456')
-    a.setup()
-    a.login()
+    # a.setup()
+    # a.login()
     count = 0
     while count == 0:
+        a.setup()
         zf = a.main()
         print('zf返回为：', zf)
         count = count + zf
