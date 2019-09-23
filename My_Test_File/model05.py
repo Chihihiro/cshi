@@ -93,8 +93,20 @@ class my_test(My_Tests):
         self.wait_xpath('//android.widget.Button[@text="立即预约"]').click()
         time.sleep(3)
         print('酒店订单下单成功')
-        # except BaseException as e:
-        #     print(e)
+
+        try:
+            # 查看登入是否存在
+            # 'com.yhouse.code:id/header_txt_title'
+            zf = self.driver.find_element_by_xpath('//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
+        except BaseException:
+            zf = None
+
+        if zf:
+            return 1
+        else:
+            return 0
+
+
 
     def random_click(self):
         time.sleep(3)  # 设置延迟方便调试
@@ -147,11 +159,17 @@ class my_test(My_Tests):
 
 
 
+
+
 def run5():
     a = my_test(phone='13524422749', password='123456')
     a.setup()
     a.login()
-    a.main()
+    count = 0
+    while count == 0:
+        zf = a.main()
+        print('zf返回为：', zf)
+        count = count + zf
     a.tearDown()
 
 
