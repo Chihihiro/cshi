@@ -28,9 +28,9 @@ class my_test(My_Tests):
         time.sleep(5)
         print('爱奇艺VIP会员年卡订单下单成功')
         try:
-            zf = self.driver.find_element_by_xpath(
-                '//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
-            # zf = self.driver.find_element_by_xpath('//android.widget.TextView[@text="爱奇艺VIP会员年卡"]')
+            # zf = self.driver.find_element_by_xpath(
+            #     '//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
+            zf = self.driver.find_element_by_xpath('//android.widget.TextView[@text="支付"]')
         except BaseException:
             zf = None
 

@@ -32,8 +32,9 @@ class my_test(My_Tests):
 
 
         try:
-            zf = self.driver.find_element_by_xpath(
-                '//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
+            # zf = self.driver.find_element_by_xpath(
+            #     '//android.widget.TextView[@resource-id="com.yhouse.code:id/header_txt_title"]')
+            zf = self.driver.find_element_by_xpath('//android.widget.TextView[@text="支付"]')
         except BaseException:
             zf = None
 
