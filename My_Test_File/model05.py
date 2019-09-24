@@ -114,7 +114,8 @@ class my_test(My_Tests):
         time.sleep(3)  # 设置延迟方便调试
         # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
         now = re.sub('-', '.', str(datetime.now())[:10])
-        now2 = now[:5]+ str(now[5:7]) +'.'+ str(now[8:10])
+        now2 = now[:5]+ str(int(now[5:7])) +'.'+ str(int(now[8:10]))
+        now3 = now[:5]+ str(now[5:7]) +'.'+ str(now[8:10])
 
         print('now2:', now2)
 
@@ -125,13 +126,13 @@ class my_test(My_Tests):
             self.wait_xpath('//android.widget.ImageView[@resource-id="com.yhouse.code:id/header_left_back"]').click()
 
 
-        # try:
-        #     cc = self.driver.find_element_by_xpath(f'//*[@content-desc="{now}"]')
-        #     self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
-        #     print(cc, '今天日期存在')
-        # except BaseException as e:
-        #     print(e)
-        #     cc = None
+        try:
+            cc = self.driver.find_element_by_xpath(f'//*[@content-desc="{now3}"]')
+            # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+            print(cc, '今天日期存在')
+        except BaseException as e:
+            print(e)
+            cc = None
 
         try:
             zz = self.driver.find_element_by_xpath(f'//*[@content-desc="{now2}"]')
@@ -141,11 +142,11 @@ class my_test(My_Tests):
             print(e)
             zz = None
 
-        if zz:
+        if zz or cc:
             try:
                 self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
                 time.sleep(1)
-                x = [i for i in range(100,601,100)]
+                x = [i for i in range(100, 601, 100)]
                 x1 = random.choice(x)
                 x2 = x1 + 100
                 """
