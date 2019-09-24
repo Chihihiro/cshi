@@ -135,7 +135,7 @@ class my_test(My_Tests):
 
         try:
             zz = self.driver.find_element_by_xpath(f'//*[@content-desc="{now2}"]')
-            self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+            # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
             print(zz, '今天日期存在')
         except BaseException as e:
             print(e)
@@ -143,7 +143,7 @@ class my_test(My_Tests):
 
         if zz:
             try:
-                # self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
+                self.wait_xpath('//*[@content-desc="选择日期："]/following-sibling::android.view.View').click()
                 time.sleep(1)
                 x = [i for i in range(100,601,100)]
                 x1 = random.choice(x)
