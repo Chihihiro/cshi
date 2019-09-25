@@ -52,12 +52,12 @@ class my_test(My_Tests):
 
 
         self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]',
-                      down=-random.randint(1000, 2000))
+                      down=-random.randint(500, 1000))
         time.sleep(3)
         bb = random.choice([0,1,2,3])
         for i in range(bb):
             self.my_touch(xpath='//android.widget.TextView[@resource-id="com.yhouse.code:id/title_tv"]',
-                          down=-random.randint(500, 1520))
+                          down=-random.randint(300, 1000))
         time.sleep(3)
         self.touch_tap(500, 600)
         # x = [2, 3, 4, 5, 6]
