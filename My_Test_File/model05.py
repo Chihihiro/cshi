@@ -156,8 +156,9 @@ class my_test(My_Tests):
                 y最大1300
                 
                 24：y = [i for i in range(800,1301,100)]
+                1190 1301 是最好两排
                 """
-                y = [i for i in range(300, 1001, 100)]
+                y = [i for i in range(1190, 1301, 100)]
                 y1 = random.choice(y)
                 print('随机高度和左右', y1, x1, x2)
                 self.touch_tap(x1, y1)
