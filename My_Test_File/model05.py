@@ -90,8 +90,8 @@ class my_test(My_Tests):
         name = self.wait_xpath('//android.widget.EditText[@text="请输入姓名"]')
         name.click()
         time.sleep(3)
-        txt = self.random_name()
-        phone1 = self.phoneNORandomGenerator()
+        txt = 'testname'
+        phone1 = self.phone
         field = f'{txt}~{phone1}'
         self.my_send(field)#模拟键盘输入
         self.wait_xpath('//android.widget.Button[@text="立即预约"]').click()
@@ -158,7 +158,7 @@ class my_test(My_Tests):
                 24：y = [i for i in range(800,1301,100)]
                 1190 1301 是最好两排
                 """
-                y = [i for i in range(1190, 1301, 100)]
+                y = [i for i in range(400, 1000, 100)]
                 y1 = random.choice(y)
                 print('随机高度和左右', y1, x1, x2)
                 self.touch_tap(x1, y1)
