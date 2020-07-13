@@ -43,7 +43,8 @@ class my_test(My_Tests):
         #填写信息
         name = self.wait_xpath('//android.widget.EditText[@text="请输入姓名"]')
         name.click()
-        time.sleep(3)
+        # time.sleep(3)
+
         field = f'test~{self.id_card}~13524422749'
         self.my_send(field)#模拟键盘输入
         self.wait_xpath('//*[@content-desc="立即支付"]').click()

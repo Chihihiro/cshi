@@ -5,9 +5,6 @@
 import os
 import threading
 import time
-from apscheduler.schedulers.blocking import BlockingScheduler
-from datetime import datetime
-import schedule
 from My_Test_File.model01 import run1 as run1
 from My_Test_File.model02 import run2 as run2
 from My_Test_File.model03 import run3 as run3
@@ -35,7 +32,7 @@ from My_Test_File.model06 import run6 as run6
 #             time.sleep(5)
 
 def job2():
-    contab = [run2, run3, run4, run5, run6, run1]
+    contab = [run5, run1,run2,run3,run4,run6]
     cc = []
     while len(contab) > 0:
         job = contab[-1]

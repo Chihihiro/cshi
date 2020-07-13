@@ -16,6 +16,9 @@ from MainFrame.make_id_card import id_card
 class Base_Driver(object):
     """手机app操作功能操作封装"""
 
+    # [35m[ADB][39m Package name: 'com.tencent.mm'
+    # [35m[ADB][39m Main activity name: 'com.tencent.mm.ui.LauncherUI'
+
     def __init__(self):
         self.desired_caps = {'platformName': 'Android',  # 平台名称
                              # 'deviceName': 'TNY_AL00',  # 设备名称。如果是真机，在'设置->关于手机->设备名称'里查看
@@ -24,6 +27,8 @@ class Base_Driver(object):
                              'noReset': True,  # 设置成False 的话会弹出需要你设置权限的弹窗默认使用True
                              'appPackage': 'com.yhouse.code',  # apk的包名
                              'appActivity': '.activity.SplashActivity',  # activity 名称
+                             # 'appPackage': 'com.tencent.mm',  # apk的包名
+                             # 'appActivity': 'com.tencent.mm.ui.LauncherUI',  # activity 名称
                              'unicodeKeyboard': True,
                              'resetKeyboard': True
                              }
